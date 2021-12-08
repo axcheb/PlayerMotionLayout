@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:motion="http://schemas.android.com/tools">
+
+    <Transition
+        app:constraintSetStart="@id/expended"
+        app:constraintSetEnd="@id/collapsed"
+        motion:duration="1000"
+        motion:motionInterpolator="linear"
+        />
+
+    <ConstraintSet android:id="@+id/collapsed">
+        <Constraint android:id="@id/collapsed_player_layout"
+            android:alpha="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/player_collapsed_height"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <Constraint android:id="@id/expended_player_layout"
+            android:alpha="0"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            motion:layout_constraintHeight_default="percent"
+            motion:layout_constraintHeight_percent="1"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toTopOf="@id/collapsed_player_layout"
+            />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/expended">
+
+        <Constraint android:id="@id/collapsed_player_layout"
+            android:alpha="0"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <Constraint android:id="@id/expended_player_layout"
+            android:alpha="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            motion:layout_constraintHeight_default="percent"
+            motion:layout_constraintHeight_percent="1"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toTopOf="@id/collapsed_player_layout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </ConstraintSet>
+
+</MotionScene>
