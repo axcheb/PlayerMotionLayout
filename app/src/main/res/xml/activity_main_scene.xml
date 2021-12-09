@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:motion="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Transition
-        motion:constraintSetStart="@id/expended"
-        motion:constraintSetEnd="@id/collapsed"
-        motion:motionInterpolator="linear">
-
+        app:constraintSetStart="@id/collapsed"
+        app:constraintSetEnd="@id/expended"
+        app:duration="300"
+        app:motionInterpolator="easeInOut">
         <OnSwipe
-            motion:dragDirection="dragUp"
-            motion:touchAnchorId="@+id/collapsed_player_layout"
-            motion:touchAnchorSide="bottom" />
-
+            app:dragDirection="dragUp"
+            app:maxAcceleration="200"
+            app:touchAnchorId="@+id/collapsed_player_layout"
+            app:touchAnchorSide="top"
+            />
     </Transition>
 
     <ConstraintSet android:id="@+id/collapsed">
@@ -21,22 +22,19 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
 
-            motion:layout_constraintHeight_default="percent"
-            motion:layout_constraintHeight_percent="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
 
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent"
-
-            motion:layout_constraintTop_toTopOf="@id/collapsed_player_layout"
+            app:layout_constraintTop_toTopOf="@id/collapsed_player_layout"
             />
 
         <Constraint android:id="@id/collapsed_player_layout"
             android:alpha="1"
-            motion:layout_constraintLeft_toLeftOf="parent"
-            motion:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             android:layout_width="match_parent"
             android:layout_height="@dimen/player_collapsed_height"
-            motion:layout_constraintBottom_toTopOf="@id/nav_view"
+            app:layout_constraintBottom_toTopOf="@id/nav_view"
             />
 
         <Constraint
@@ -44,9 +42,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="?android:attr/windowBackground"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintLeft_toLeftOf="parent"
-            motion:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
     </ConstraintSet>
 
@@ -57,30 +55,31 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
 
-            motion:layout_constraintHeight_default="percent"
-            motion:layout_constraintHeight_percent="1"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="1"
 
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
 
-            motion:layout_constraintTop_toTopOf="@id/collapsed_player_layout"
-            motion:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@id/collapsed_player_layout"
+            app:layout_constraintBottom_toBottomOf="parent"
             />
 
         <Constraint android:id="@id/collapsed_player_layout"
             android:alpha="0"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            motion:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             />
 
         <Constraint
             android:id="@id/nav_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            motion:layout_constraintLeft_toLeftOf="parent"
-            motion:layout_constraintRight_toRightOf="parent"
-            motion:layout_constraintTop_toBottomOf="parent" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            />
 
     </ConstraintSet>
 
