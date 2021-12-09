@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     app:layoutDescription="@xml/activity_main_scene">
 
-<!--    android:paddingTop="?attr/actionBarSize"-->
-
     <fragment
         android:id="@+id/nav_host_fragment_activity_main"
         android:layout_width="match_parent"
@@ -17,7 +15,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:navGraph="@navigation/mobile_navigation" />
 
     <include
@@ -37,8 +35,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
         android:background="?android:attr/windowBackground"
-        app:layout_constraintTop_toBottomOf="@id/nav_host_fragment_activity_main"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/bottom_nav_menu" />
