@@ -10,7 +10,7 @@
         <OnSwipe
             app:dragDirection="dragUp"
             app:maxAcceleration="200"
-            app:touchAnchorId="@+id/collapsed_player_layout"
+            app:touchAnchorId="@+id/expended_player_layout"
             app:touchAnchorSide="top"
             />
     </Transition>
